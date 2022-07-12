@@ -1,5 +1,4 @@
 'use strict';
-//selecting ELEMENTS
 const score0El = document.getElementById('score--0');
 const score1El = document.getElementById('score--1');
 const diceEl = document.querySelector('.dice');
@@ -32,18 +31,14 @@ init();
 const btnRoll = document.querySelector('.btn--roll');
 btnRoll.addEventListener('click', function () {
   if (playing) {
-    //1/ Generate Random Dice Roll
     const diceRandom = Math.trunc(Math.random() * 6) + 1;
-    console.log(diceRandom);
-    //2 Display Dice
     diceEl.classList.remove('hidden');
     
     diceEl.src = `dice-${diceRandom}.png`;
-    // 3 Check for rolled if it true add to current score
     if (diceRandom !== 1) {
       currentScore += diceRandom;
       document.getElementById(`current--${activePlayer}`).textContent =
-        currentScore; //change later
+        currentScore;
     } else {
       switchPlayer();
     }
